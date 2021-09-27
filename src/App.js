@@ -1,7 +1,11 @@
 import UserBar from "./UserBar";
 
 function App() {
-  return <UserBar />
+  return (
+    <>
+      <UserBar />
+    </>
+  )
 }
 
 export default App;
