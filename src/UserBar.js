@@ -8,6 +8,8 @@ import Register from './Register'
 
 export default function UserBar() {
     const user = ''
+    // const user = 'Dale Cooper'
+
     if (user) {
         return (
             <>
