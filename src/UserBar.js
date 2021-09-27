@@ -1,6 +1,5 @@
 import React from 'react'
 import CreateItem from './CreateItem'
-import Item from './Item'
 import ItemList from './ItemList'
 import Login from './Login'
 import Logout from './Logout'
@@ -11,13 +10,36 @@ export default function UserBar() {
     // const user = 'Dale Cooper'
 
     if (user) {
+        const list = [
+            {
+                title: "Todo Title",
+                description: "Description of todo",
+                complete: false
+            },
+            {
+                title: "Todo Title",
+                description: "Description of todo",
+                complete: false
+            },
+            {
+                title: "Todo Title",
+                description: "Description of todo",
+                complete: false
+            },
+            {
+                title: "Todo Title",
+                description: "Description of todo",
+                complete: false
+            }
+        ]
+
         return (
             <>
                 <Logout user={user} />
                 <h3>Create To-Do Item</h3>
                 <CreateItem />
                 <h3>To-Do List</h3>
-                <ItemList />
+                <ItemList items={list} />
             </>
         )
     } else {
