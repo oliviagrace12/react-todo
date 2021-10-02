@@ -4,7 +4,8 @@ import Item from './Item'
 export default function ItemList({ items = [] }) {
     return (
         <div>
-            {items.map((it) => <Item {...it} title={it.title} description={it.description} />)}
+            <h3>To-Do List: </h3>
+            {items.map((it) => <Item {...it} title={it.title} description={it.description} complete={it.complete} />)}
         </div>
     )
 }

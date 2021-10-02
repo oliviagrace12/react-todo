@@ -10,7 +10,7 @@ export default function Login({ setUser }) {
 
     return (
         <div>
-            <h3>Create Account</h3>
+            <h3>Login</h3>
             <form onSubmit={e => { e.preventDefault(); setUser(username) }}>
                 <div>
                     <label htmlFor="register-username">Username:</label>
@@ -21,7 +21,7 @@ export default function Login({ setUser }) {
                     <input type="password" value={password} onChange={handlePassword} name="register-password" id="register-password" />
                 </div>
                 <div>
-                    <input type="submit" value="Register" disabled={username.length === 0 | password.length === 0} />
+                    <input type="submit" value="Login" disabled={username.length === 0 | password.length === 0} />
                 </div>
             </form>
         </div>
