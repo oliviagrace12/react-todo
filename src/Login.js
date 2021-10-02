@@ -2,26 +2,25 @@ import React, { useState } from 'react'
 
 export default function Login({ setUser }) {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
-    function handleUsername(evt) { setUsername(evt.target.value) }
-    function handlePassword(evt) { setPassword(evt.target.value) }
+    const [formData, setFormData] = useState({
+        username: "",
+        password: ""
+    })
 
     return (
         <div>
             <h3>Login</h3>
-            <form onSubmit={e => { e.preventDefault(); setUser(username) }}>
+            <form onSubmit={e => { e.preventDefault(); setUser(formData.username) }}>
                 <div>
                     <label htmlFor="register-username">Username:</label>
-                    <input type="text" value={username} onChange={handleUsername} name="register-username" id="register_username" />
+                    <input type="text" value={formData.username} onChange={e => setFormData({ ...formData, username: e.target.value })} name="register-username" id="register_username" />
                 </div>
                 <div>
                     <label htmlFor="register-password">Password:</label>
-                    <input type="password" value={password} onChange={handlePassword} name="register-password" id="register-password" />
+                    <input type="password" value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} name="register-password" id="register-password" />
                 </div>
                 <div>
-                    <input type="submit" value="Login" disabled={username.length === 0 | password.length === 0} />
+                    <input type="submit" value="Login" disabled={formData.username.length === 0 | formData.password.length === 0} />
                 </div>
             </form>
         </div>
