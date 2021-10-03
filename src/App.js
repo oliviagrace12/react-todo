@@ -1,7 +1,8 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 import UserBar from './UserBar';
 import CreateItem from './CreateItem'
 import ItemList from './ItemList'
+import appReducer from './reducers'
 
 function App() {
 
@@ -18,47 +19,32 @@ function App() {
     }
   ]
 
-  function userReducer(state, action) {
-    switch (action.type) {
-      case 'LOGIN':
-      case 'REGISTER':
-        return action.username
-      case 'LOGOUT':
-        return ''
-      default:
-        throw new Error()
+  const [state, dispatch] = useReducer(appReducer, { user: '', items: initialItems })
+  const { user, items } = state
+
+  useEffect(() => {
+    if (user) {
+      document.title = `${user}'s To-Do List`
+    } else {
+      document.title = 'To-Do List'
     }
-  }
+  }, [user])
 
-
-
-  const [user, dispatchUser] = useReducer(userReducer, '')
-  const [items, dispatchItems] = useReducer(itemReducer, initialItems)
-
-  function itemReducer(state, action) {
-    switch (action.type) {
-      case 'CREATE_ITEM':
-        const newItem = { title: action.title, description: action.description, complete: "false" }
-        return [newItem, ...state]
-      default:
-        throw new Error()
-    }
-  }
-
-  if (user) {
+  if (state.user) {
     return (
       <div>
-        <UserBar user={user} dispatchUser={dispatchUser} />
+        <UserBar user={user} dispatchUser={dispatch} />
         <br /><br /><hr /><br />
-        <CreateItem user={user} items={items} dispatchItems={dispatchItems} />
+        <CreateItem user={user} items={state.items} dispatchItems={dispatch} />
         <ItemList items={items} />
       </div>
     )
   } else {
     return (
       <div>
-        <UserBar user={user} dispatchUser={dispatchUser} />
+        <UserBar user={user} dispatchUser={dispatch} />
         <br /><br /><hr /><br />
+        <ItemList items={items} />
       </div>
     )
   }
