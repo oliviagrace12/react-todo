@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Item({ title, description, complete, createdTime, completedTime }) {
+export default function Item({ title, description, complete, createdTime, completedTime, dispatch }) {
 
     if (complete === "true") {
         return (
@@ -16,7 +16,7 @@ export default function Item({ title, description, complete, createdTime, comple
                 </form>
                 <i>Completed {completedTime}</i>
                 <br />
-                <button>Delete</button>
+                <button onClick={e => dispatch({ type: "DELETE_ITEM", title })}>Delete</button>
                 <p />
             </div>
         )
@@ -32,9 +32,9 @@ export default function Item({ title, description, complete, createdTime, comple
                     <label htmlFor="isCompleted">Complete</label>
                     <input name="isCompleted" type="checkbox" checked={false} />
                 </form>
-                <button>Delete</button>
+                <button onClick={e => dispatch({ type: "DELETE_ITEM", title })}>Delete</button>
                 <p />
-            </div>
+            </div >
         )
     }
 }

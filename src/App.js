@@ -12,7 +12,7 @@ function App() {
       description: "Eggs, milk",
       createdTime: Date(),
       complete: "true",
-      completedTime: Date()
+      completedTime: Date(),
     },
     {
       title: "Clean",
@@ -38,14 +38,14 @@ function App() {
       <div>
         <UserBar user={user} dispatchUser={dispatch} />
         <br /><br /><hr /><br />
-        <CreateItem user={user} items={state.items} dispatchItems={dispatch} />
+        <CreateItem user={user} items={state.items} dispatch={dispatch} />
         <ItemList items={items} dispatch={dispatch} />
       </div>
     )
   } else {
     return (
       <div>
-        <UserBar user={user} dispatchUser={dispatch} />
+        <UserBar user={user} dispatch={dispatch} />
         <br /><br /><hr /><br />
         <ItemList items={items} dispatch={dispatch} />
       </div>
