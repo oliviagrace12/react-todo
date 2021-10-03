@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Register({ dispatchUser }) {
+export default function Register({ dispatch }) {
 
     const [formData, setFormData] = useState({
         username: "",
@@ -11,7 +11,7 @@ export default function Register({ dispatchUser }) {
     return (
         <div>
             <h3>Create Account</h3>
-            <form onSubmit={e => { e.preventDefault(); dispatchUser({ type: "REGISTER", username: formData.username }) }}>
+            <form onSubmit={e => { e.preventDefault(); dispatch({ type: "REGISTER", username: formData.username }) }}>
                 <div>
                     <label htmlFor="register-username">Username:</label>
                     <input type="text" value={formData.username} onChange={e => setFormData({ ...formData, username: e.target.value })} name="register-username" id="register_username" />
