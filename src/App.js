@@ -8,13 +8,16 @@ function App() {
 
   const initialItems = [
     {
-      title: "todo 1",
-      description: "desc 1",
-      complete: "true"
+      title: "Get groceries",
+      description: "Eggs, milk",
+      createdTime: Date(),
+      complete: "true",
+      completedTime: Date()
     },
     {
-      title: "todo 2",
-      description: "desc 2",
+      title: "Clean",
+      description: "Kitchen, bathroom",
+      createdTime: Date(),
       complete: "false"
     }
   ]
@@ -36,7 +39,7 @@ function App() {
         <UserBar user={user} dispatchUser={dispatch} />
         <br /><br /><hr /><br />
         <CreateItem user={user} items={state.items} dispatchItems={dispatch} />
-        <ItemList items={items} />
+        <ItemList items={items} dispatch={dispatch} />
       </div>
     )
   } else {
@@ -44,7 +47,7 @@ function App() {
       <div>
         <UserBar user={user} dispatchUser={dispatch} />
         <br /><br /><hr /><br />
-        <ItemList items={items} />
+        <ItemList items={items} dispatch={dispatch} />
       </div>
     )
   }
