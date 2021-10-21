@@ -1,7 +1,7 @@
 import React from 'react'
 import Item from './Item'
 
-export default function ItemList({ items = [], dispatch }) {
+export default function ItemList({ items, dispatch }) {
     return (
         <div>
             <h2>To-Do List: </h2>
@@ -10,8 +10,9 @@ export default function ItemList({ items = [], dispatch }) {
                 description={it.description}
                 complete={it.complete}
                 createdTime={it.createdTime}
+                completedTime={it.completedTime}
                 dispatch={dispatch}
-                key={i}
+                itemId={i}
             />)}
         </div>
     )

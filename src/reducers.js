@@ -13,20 +13,24 @@ function userReducer(state, action) {
 function itemReducer(state, action) {
     switch (action.type) {
         case 'CREATE_ITEM':
-            const newItem = { title: action.title, description: action.description, complete: "false", createdTime: Date() }
+            const newItem = {
+                title: action.title,
+                description: action.description,
+                complete: false,
+                createdTime: Date(),
+                completedTime: undefined
+            }
             return [newItem, ...state]
         case 'TOGGLE_ITEM':
-            return state.map(it => {
-                if (it.title === action.title && it.complete === "false") {
-                    return { title: action.title, description: action.description, createdTime: action.createdTime, complete: "true", completedTime: Date() }
-                } else if (it.title === action.title && it.complete === "true") {
-                    return { title: action.title, description: action.description, createdTime: action.createdTime, complete: "false", completedTime: null }
-                } else {
-                    return it
+            return state.map((item, i) => {
+                if (i === action.itemId) {
+                    item.complete = action.complete
+                    item.completedTime = Date();
                 }
+                return item
             })
         case 'DELETE_ITEM':
-            return state.filter(it => it.title !== action.title)
+            return state.filter((item, i) => i !== action.itemId)
         default:
             return state
     }

@@ -10,7 +10,7 @@ export default function CreateItem({ dispatch }) {
     return (
         <div>
             <h3>Create a new To-Do Item:</h3>
-            <form onSubmit={e => { e.preventDefault(); dispatch({ type: "CREATE_ITEM", title: formData.title, description: formData.description, dispatch: dispatch }); }}>
+            <form onSubmit={e => { e.preventDefault(); dispatch({ type: "CREATE_ITEM", title: formData.title, description: formData.description, dispatch: dispatch, }); }}>
                 <div>
                     <label htmlFor="create-title">Title: </label>
                     <input type="text" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} name="create-title" id="create-title" />

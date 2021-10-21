@@ -11,14 +11,17 @@ function App() {
       title: "Get groceries",
       description: "Eggs, milk",
       createdTime: Date(),
-      complete: "true",
-      completedTime: Date(),
+      complete: false,
+      completedTime: undefined,
+      key: "key1"
     },
     {
       title: "Clean",
       description: "Kitchen, bathroom",
       createdTime: Date(),
-      complete: "false"
+      complete: false,
+      completedTime: undefined,
+      key: "key2"
     }
   ]
 
@@ -36,9 +39,9 @@ function App() {
   if (state.user) {
     return (
       <div>
-        <UserBar user={user} dispatchUser={dispatch} />
+        <UserBar user={user} dispatch={dispatch} />
         <br /><br /><hr /><br />
-        <CreateItem user={user} items={state.items} dispatch={dispatch} />
+        <CreateItem dispatch={dispatch} />
         <ItemList items={items} dispatch={dispatch} />
       </div>
     )
