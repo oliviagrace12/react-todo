@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
+import { StateContext, ThemeContext } from './Contexts'
 
-export default function Item({ title, description, complete, createdTime, completedTime, dispatch, itemId }) {
+export default function Item({ title, description, complete, createdTime, completedTime, itemId }) {
+
+    const { secondaryColor } = useContext(ThemeContext)
+
+    const { dispatch } = useContext(StateContext)
 
     return (
         <div>
-            <b>{title} <br /></b>
+            <h3 style={{ color: secondaryColor }}>{title} <br /></h3>
             <>{description} <br /></>
             <i>Created time:  {createdTime} <br /></i>
             <input type="checkbox" onClick={e => { dispatch({ type: 'TOGGLE_ITEM', complete: !complete, itemId: itemId }) }}></input>

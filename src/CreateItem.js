@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { StateContext } from './Contexts';
 
-export default function CreateItem({ dispatch }) {
+export default function CreateItem() {
 
     const [formData, setFormData] = useState({
         title: "",
         description: ""
     })
+
+    const { dispatch } = useContext(StateContext)
 
     return (
         <div>

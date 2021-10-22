@@ -1,8 +1,11 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer, useEffect, useState } from 'react'
 import UserBar from './UserBar';
 import CreateItem from './CreateItem'
 import ItemList from './ItemList'
 import appReducer from './reducers'
+import Header from './Header'
+import { ThemeContext, StateContext } from './Contexts'
+import ChangeTheme from './ChangeTheme';
 
 function App() {
 
@@ -26,7 +29,11 @@ function App() {
   ]
 
   const [state, dispatch] = useReducer(appReducer, { user: '', items: initialItems })
-  const { user, items } = state
+  const { user, items } = state;
+  const [theme, setTheme] = useState({
+    primaryColor: 'deepskyblue',
+    secondaryColor: 'coral'
+  })
 
   useEffect(() => {
     if (user) {
@@ -36,26 +43,20 @@ function App() {
     }
   }, [user])
 
-  if (state.user) {
-    return (
-      <div>
-        <UserBar user={user} dispatch={dispatch} />
-        <br /><br /><hr /><br />
-        <CreateItem dispatch={dispatch} />
-        <ItemList items={items} dispatch={dispatch} />
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        <UserBar user={user} dispatch={dispatch} />
-        <br /><br /><hr /><br />
-        <ItemList items={items} dispatch={dispatch} />
-      </div>
-    )
-  }
-
-
+  return (
+    <div>
+      <ThemeContext.Provider value={theme}>
+        <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
+          <Header text="My To-Do List"></Header>
+          <ChangeTheme theme={theme} setTheme={setTheme} />
+          <UserBar />
+          <br /><br /><hr /><br />
+          <CreateItem />
+          <ItemList />
+        </StateContext.Provider>
+      </ThemeContext.Provider>
+    </div>
+  )
 
 }
 
