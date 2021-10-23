@@ -1,0 +1,44 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Do Laundry",
+      "descr": "Wash, dry, and fold",
+      "author": "testuser",
+      "complete": false,
+      "completedOn": null
+    },
+    {
+      "id": 2,
+      "title": "Pay Bills",
+      "content": "Car, Electric, Gas",
+      "author": "testuser",
+      "complete": false,
+      "completedOn": null
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "testuser",
+      "password": "badpassword"
+    }
+  ],
+  "themes": [
+    {
+      "id": 1,
+      "primaryColor": "deepskyblue",
+      "secondaryColor": "coral"
+    },
+    {
+      "id": 2,
+      "primaryColor": "orchid",
+      "secondaryColor": "mediumseagreen"
+    },
+    {
+      "id": 3,
+      "primaryColor": "black",
+      "secondaryColor": "grey"
+    }
+  ]
+}
