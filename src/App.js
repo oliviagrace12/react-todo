@@ -6,30 +6,27 @@ import appReducer from './reducers'
 import Header from './Header'
 import { ThemeContext, StateContext } from './Contexts'
 import ChangeTheme from './ChangeTheme';
+import { useResource } from 'react-request-hook';
 
 function App() {
 
-  const initialItems = [
-    {
-      title: "Get groceries",
-      description: "Eggs, milk",
-      createdTime: Date(),
-      complete: false,
-      completedTime: undefined,
-      key: "key1"
-    },
-    {
-      title: "Clean",
-      description: "Kitchen, bathroom",
-      createdTime: Date(),
-      complete: false,
-      completedTime: undefined,
-      key: "key2"
-    }
-  ]
+  const [items, getItems] = useResource(() => ({
+    url: '/items',
+    method: 'get'
+  }))
 
-  const [state, dispatch] = useReducer(appReducer, { user: '', items: initialItems })
-  const { user, items } = state;
+  const [state, dispatch] = useReducer(appReducer, { user: '', items: [] })
+
+  useEffect(getItems, [])
+
+  useEffect(() => {
+    if (items && items.data) {
+      dispatch({ type: 'FETCH_ITEMS', items: items.data })
+    }
+  }, [items])
+
+  const { user } = state;
+
   const [theme, setTheme] = useState({
     primaryColor: 'deepskyblue',
     secondaryColor: 'coral'
