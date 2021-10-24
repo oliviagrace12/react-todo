@@ -15,7 +15,7 @@ export default function ItemList() {
                 complete={it.complete}
                 createdTime={it.createdTime}
                 completedTime={it.completedTime}
-                itemId={i}
+                id={i}
             />)}
         </div>
     )

@@ -12,6 +12,8 @@ function userReducer(state, action) {
 
 function itemReducer(state, action) {
     switch (action.type) {
+        case 'FETCH_ITEMS':
+            return action.items;
         case 'CREATE_ITEM':
             const newItem = {
                 title: action.title,

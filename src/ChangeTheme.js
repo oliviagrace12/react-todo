@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useResource } from 'react-request-hook'
+import { ThemeContext } from './Contexts'
 
 function ThemeItem({ theme, active, onClick }) {
     return (
@@ -14,14 +15,16 @@ function ThemeItem({ theme, active, onClick }) {
     )
 }
 
-export default function ChangeTheme({ theme, setTheme }) {
+export default function ChangeTheme() {
+
+    const { theme, setTheme } = useContext(ThemeContext)
 
     const [themes, getThemes] = useResource(() => ({
         url: '/themes',
         method: 'get'
     }))
 
-    useEffect(getThemes, [])
+    useEffect(getThemes, [getThemes])
 
     const { data, isLoading } = themes
 

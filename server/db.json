@@ -3,18 +3,18 @@
     {
       "id": 1,
       "title": "Do Laundry",
-      "descr": "Wash, dry, and fold",
-      "author": "testuser",
+      "description": "Wash, dry, and fold",
+      "createdTime": null,
       "complete": false,
-      "completedOn": null
+      "completedTime": null
     },
     {
       "id": 2,
       "title": "Pay Bills",
-      "content": "Car, Electric, Gas",
-      "author": "testuser",
+      "description": "Car, Electric, Gas",
+      "createdTime": null,
       "complete": false,
-      "completedOn": null
+      "completedTime": null
     }
   ],
   "users": [
