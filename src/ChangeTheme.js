@@ -15,16 +15,16 @@ function ThemeItem({ theme, active, onClick }) {
     )
 }
 
-export default function ChangeTheme() {
+export default function ChangeTheme({ theme, setTheme }) {
 
-    const { theme, setTheme } = useContext(ThemeContext)
+    // const { theme, setTheme } = useContext(ThemeContext)
 
     const [themes, getThemes] = useResource(() => ({
         url: '/themes',
         method: 'get'
     }))
 
-    useEffect(getThemes, [getThemes])
+    useEffect(getThemes, [])
 
     const { data, isLoading } = themes
 
@@ -36,7 +36,7 @@ export default function ChangeTheme() {
 
             {isLoading && "Loading themes..."}
 
-            {isLoading === false && data && data.map((t, i) =>
+            {data && data.map((t, i) =>
                 <ThemeItem key={'theme-' + i} theme={t} active={isActive(t)} onClick={() => setTheme(t)} />
             )}
         </div>
