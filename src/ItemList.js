@@ -9,13 +9,13 @@ export default function ItemList() {
     return (
         <div>
             <h2>To-Do List: </h2>
-            {state.items.map((it, i) => <Item {...it}
+            {state.items && state.items.map((it, i) => <Item {...it}
                 title={it.title}
                 description={it.description}
                 complete={it.complete}
                 createdTime={it.createdTime}
                 completedTime={it.completedTime}
-                id={i}
+                id={it.id}
             />)}
         </div>
     )

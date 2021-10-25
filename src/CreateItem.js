@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { StateContext } from './Contexts';
+import { useResource } from 'react-request-hook'
 
 export default function CreateItem() {
 
@@ -10,10 +11,21 @@ export default function CreateItem() {
 
     const { dispatch } = useContext(StateContext)
 
+    const [item, createItem] = useResource(({ title, description }) => ({
+        url: '/items',
+        method: 'post',
+        data: { title, description, createdTime: Date(), complete: false, completedTime: undefined }
+    }))
+
+    function handleCreate(formData) {
+        createItem({ title: formData.title, description: formData.description })
+        // dispatch({ type: "CREATE_ITEM", title: formData.title, description: formData.description, dispatch: dispatch, });
+    }
+
     return (
         <div>
             <h3>Create a new To-Do Item:</h3>
-            <form onSubmit={e => { e.preventDefault(); dispatch({ type: "CREATE_ITEM", title: formData.title, description: formData.description, dispatch: dispatch, }); }}>
+            <form onSubmit={e => { e.preventDefault(); handleCreate(formData) }}>
                 <div>
                     <label htmlFor="create-title">Title: </label>
                     <input type="text" value={formData.title} onChange={e => setFormData({ ...formData, title: e.target.value })} name="create-title" id="create-title" />
