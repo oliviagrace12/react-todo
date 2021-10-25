@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useResource } from 'react-request-hook'
 import { StateContext, ThemeContext } from './Contexts'
 
@@ -8,10 +8,10 @@ export default function Item({ title, description, complete, createdTime, comple
 
     const { dispatch } = useContext(StateContext)
 
-    const [item, setComplete] = useResource((id, complete) => ({
+    const [item, setComplete] = useResource((id, complete, completedTime) => ({
         url: `/items/${encodeURI(id)}`,
         method: 'patch',
-        data: { complete }
+        data: { complete, completedTime }
     }))
 
     useEffect(() => {
@@ -20,17 +20,24 @@ export default function Item({ title, description, complete, createdTime, comple
         }
     }, [item])
 
+    function handleComplete(id, complete) {
+        if (complete === true) {
+            setComplete(id, complete, Date())
+        } else {
+            setComplete(id, complete, undefined)
+        }
+    }
+
     return (
         <div>
             <h3 style={{ color: secondaryColor }}>{title} <br /></h3>
             <>{description} <br /></>
             <i>Created time:  {createdTime} <br /></i>
-            <input type="checkbox" defaultChecked={complete} onClick={e => { setComplete(id, !complete) }}></input>
+            <input type="checkbox" defaultChecked={complete} onClick={e => { handleComplete(id, !complete) }}></input>
             {complete && <i>Completed time: {completedTime}</i>}
             <br />
             <button onClick={e => { dispatch({ type: 'DELETE_ITEM', itemId: id }) }}>Delete</button>
             <p />
         </div>
     )
-
 }

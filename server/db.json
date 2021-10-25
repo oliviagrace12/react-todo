@@ -4,160 +4,31 @@
       "id": 1,
       "title": "Do Laundry",
       "description": "Wash, dry, and fold",
-      "createdTime": null,
+      "createdTime": "Sun Oct 24 2021 22:30:51 GMT-0500 (Central Daylight Time)",
       "complete": false
     },
     {
       "id": 2,
       "title": "Pay Bills",
       "description": "Car, Electric, Gas",
-      "createdTime": null,
-      "complete": false
-    },
-    {
-      "title": "sfgbs",
-      "description": "sgbsgb222222",
-      "createdDate": "Sat Oct 23 2021 23:01:53 GMT-0500 (Central Daylight Time)",
+      "createdTime": "Sun Oct 24 2021 22:30:51 GMT-0500 (Central Daylight Time)",
       "complete": false,
-      "id": 3
+      "completedTime": "Sun Oct 24 2021 22:30:51 GMT-0500 (Central Daylight Time)"
     },
     {
       "title": "Diane, order a new headphones for me",
-      "description": "  dfgsgha",
-      "complete": false,
-      "id": 4
-    },
-    {
-      "title": "fgnsfgn",
-      "description": "sfgnsfgns 4444",
-      "complete": false,
-      "id": 5
-    },
-    {
-      "title": "This",
-      "description": "is a test",
-      "createdTime": "Sat Oct 23 2021 23:19:36 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 6
-    },
-    {
-      "title": "Groceries",
-      "description": "are important ",
-      "createdTime": "Sat Oct 23 2021 23:23:34 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 7
-    },
-    {
-      "title": "Make appt",
-      "description": "dentist\n",
-      "createdTime": "Sun Oct 24 2021 20:06:47 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 8
-    },
-    {
-      "title": "Groceries",
-      "description": "apples, bananas",
-      "createdTime": "Sun Oct 24 2021 20:18:09 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 9
-    },
-    {
-      "title": "sdgbsgb",
-      "description": "sfgbsfgnsfgnshn",
-      "createdTime": "Sun Oct 24 2021 20:27:04 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 10
-    },
-    {
-      "title": "sdgbsgb",
-      "description": "sfgbsfgnsfgnshn",
-      "createdTime": "Sun Oct 24 2021 20:27:12 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 11
-    },
-    {
-      "title": "jk.gjk",
-      "description": "hj,ghj,gjk",
-      "createdTime": "Sun Oct 24 2021 20:29:07 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 12
-    },
-    {
-      "title": "jk.gjk",
-      "description": "hj,ghj,gjk",
-      "createdTime": "Sun Oct 24 2021 20:29:09 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 13
+      "description": "please",
+      "createdTime": "Sun Oct 24 2021 22:16:12 GMT-0500 (Central Daylight Time)",
+      "complete": true,
+      "id": 3,
+      "completedTime": "Sun Oct 24 2021 22:31:34 GMT-0500 (Central Daylight Time)"
     },
     {
       "title": "Test !!!",
-      "description": "knba;dfjnba",
-      "createdTime": "Sun Oct 24 2021 20:34:15 GMT-0500 (Central Daylight Time)",
+      "description": "test",
+      "createdTime": "Sun Oct 24 2021 22:31:55 GMT-0500 (Central Daylight Time)",
       "complete": false,
-      "id": 14
-    },
-    {
-      "title": " sfg ",
-      "description": "fv sf sfg sf",
-      "createdTime": "Sun Oct 24 2021 20:37:32 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 15
-    },
-    {
-      "title": " sfg ",
-      "description": "fv sf sfg sf",
-      "createdTime": "Sun Oct 24 2021 20:37:33 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 16
-    },
-    {
-      "title": " sfg ",
-      "description": "fv sf sfg sf",
-      "createdTime": "Sun Oct 24 2021 20:37:38 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 17
-    },
-    {
-      "title": "Olivia TEST",
-      "description": "TESTESTEST",
-      "createdTime": "Sun Oct 24 2021 20:37:55 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 18
-    },
-    {
-      "title": "Olivia TEST",
-      "description": "TESTESTEST",
-      "createdTime": "Sun Oct 24 2021 20:37:57 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 19
-    },
-    {
-      "title": "Olivia TEST",
-      "description": "TESTESTEST",
-      "createdTime": "Sun Oct 24 2021 20:38:06 GMT-0500 (Central Daylight Time)",
-      "complete": true,
-      "id": 20
-    },
-    {
-      "title": "eeeeee",
-      "description": "eeeeee",
-      "createdTime": "Sun Oct 24 2021 21:22:47 GMT-0500 (Central Daylight Time)",
-      "complete": true,
-      "id": 21
-    },
-    {
-      "title": "This",
-      "description": "is a success",
-      "createdTime": "Sun Oct 24 2021 21:42:26 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 22
-    },
-    {
-      "title": "This",
-      "description": "is a success",
-      "createdTime": "Sun Oct 24 2021 21:42:33 GMT-0500 (Central Daylight Time)",
-      "complete": true,
-      "id": 23
+      "id": 4
     }
   ],
   "users": [

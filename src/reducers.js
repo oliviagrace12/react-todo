@@ -24,15 +24,15 @@ function itemReducer(state, action) {
             }
             return [newItem, ...state]
         case 'TOGGLE_ITEM':
-            return state.map((item, i) => {
-                if (i === action.itemId) {
+            return state.map((item) => {
+                if (item.id === action.id) {
                     item.complete = action.complete
                     item.completedTime = Date();
                 }
                 return item
             })
         case 'DELETE_ITEM':
-            return state.filter((item, i) => i !== action.itemId)
+            return state.filter((item, i) => i !== action.id)
         default:
             return state
     }
