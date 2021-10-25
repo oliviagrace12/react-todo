@@ -4,16 +4,24 @@
       "id": 1,
       "title": "Do Laundry",
       "description": "Wash, dry, and fold",
-      "createdTime": "Sun Oct 24 2021 22:30:51 GMT-0500 (Central Daylight Time)",
-      "complete": false
+      "createdTime": "Sun Oct 24 2021 22:16:12 GMT-0500 (Central Daylight Time)",
+      "complete": true,
+      "completedTime": "Sun Oct 24 2021 22:46:33 GMT-0500 (Central Daylight Time)"
     },
     {
       "id": 2,
       "title": "Pay Bills",
       "description": "Car, Electric, Gas",
-      "createdTime": "Sun Oct 24 2021 22:30:51 GMT-0500 (Central Daylight Time)",
+      "createdTime": "Sun Oct 24 2021 22:16:12 GMT-0500 (Central Daylight Time)",
+      "complete": true,
+      "completedTime": "Sun Oct 24 2021 22:46:14 GMT-0500 (Central Daylight Time)"
+    },
+    {
+      "title": "Groceries",
+      "description": "Apples, Bananas",
+      "createdTime": "Sun Oct 24 2021 22:49:02 GMT-0500 (Central Daylight Time)",
       "complete": false,
-      "completedTime": "Sun Oct 24 2021 22:30:51 GMT-0500 (Central Daylight Time)"
+      "id": 3
     }
   ],
   "users": [
@@ -28,19 +36,9 @@
       "id": 2
     },
     {
-      "username": "ted",
-      "password": "lasso",
+      "username": "Balloon",
+      "password": "dog",
       "id": 3
-    },
-    {
-      "username": "balloon",
-      "password": "b",
-      "id": 4
-    },
-    {
-      "username": "e",
-      "password": "e",
-      "id": 5
     }
   ],
   "themes": [
