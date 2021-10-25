@@ -9,7 +9,7 @@ export default function ItemList() {
     return (
         <div>
             <h2>To-Do List: </h2>
-            {state.items && state.items.reverse().map((it, i) => <Item {...it}
+            {state.items && state.items.map((it, i) => <Item {...it}
                 title={it.title}
                 description={it.description}
                 complete={it.complete}
