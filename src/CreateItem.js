@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { StateContext } from './Contexts';
 import { useResource } from 'react-request-hook'
 
@@ -19,8 +19,14 @@ export default function CreateItem() {
 
     function handleCreate(formData) {
         createItem({ title: formData.title, description: formData.description })
-        // dispatch({ type: "CREATE_ITEM", title: formData.title, description: formData.description, dispatch: dispatch, });
+        dispatch({ type: "CREATE_ITEM", title: formData.title, description: formData.description });
     }
+
+    // useEffect(() => {
+    //     if(item && item.data) {
+    //         dispatch({type: "FETCH_ITEMS", items: item.data})
+    //     }
+    // }, [item])
 
     return (
         <div>

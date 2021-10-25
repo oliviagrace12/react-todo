@@ -40,20 +40,38 @@ function App() {
     }
   }, [user])
 
-  return (
-    <div>
-      <ThemeContext.Provider value={theme}>
-        <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
-          <Header text="My To-Do List"></Header>
-          <ChangeTheme theme={theme} setTheme={setTheme} />
-          <UserBar />
-          <br /><br /><hr /><br />
-          <CreateItem />
-          <ItemList />
-        </StateContext.Provider>
-      </ThemeContext.Provider>
-    </div>
-  )
+  if (user) {
+    return (
+      <div>
+        <ThemeContext.Provider value={theme}>
+          <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
+            <Header text="My To-Do List"></Header>
+            <ChangeTheme theme={theme} setTheme={setTheme} />
+            <UserBar />
+            <br /><br /><hr /><br />
+            <CreateItem />
+            <ItemList />
+          </StateContext.Provider>
+        </ThemeContext.Provider>
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <ThemeContext.Provider value={theme}>
+          <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
+            <Header text="My To-Do List"></Header>
+            <ChangeTheme theme={theme} setTheme={setTheme} />
+            <UserBar />
+            <br /><br /><hr /><br />
+            <ItemList />
+          </StateContext.Provider>
+        </ThemeContext.Provider>
+      </div>
+    )
+  }
+
+
 
 }
 
