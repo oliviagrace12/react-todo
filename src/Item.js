@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useResource } from 'react-request-hook'
 import { StateContext, ThemeContext } from './Contexts'
 
@@ -16,7 +16,7 @@ export default function Item({ title, description, complete, createdTime, comple
 
     useEffect(() => {
         if (item && item.data) {
-            dispatch({ type: 'TOGGLE_ITEM', complete: item.complete, id: item.id })
+            dispatch({ type: 'TOGGLE_ITEM', complete: item.data.complete, id: item.data.id })
         }
     }, [item])
 
@@ -25,7 +25,7 @@ export default function Item({ title, description, complete, createdTime, comple
             <h3 style={{ color: secondaryColor }}>{title} <br /></h3>
             <>{description} <br /></>
             <i>Created time:  {createdTime} <br /></i>
-            <input type="checkbox" onClick={e => { setComplete(id, !complete) }}></input>
+            <input type="checkbox" defaultChecked={complete} onClick={e => { setComplete(id, !complete) }}></input>
             {complete && <i>Completed time: {completedTime}</i>}
             <br />
             <button onClick={e => { dispatch({ type: 'DELETE_ITEM', itemId: id }) }}>Delete</button>
