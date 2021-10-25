@@ -24,20 +24,20 @@ export default function Item({ title, description, complete, createdTime, comple
         if (complete === true) {
             setComplete(id, complete, Date())
         } else {
-            setComplete(id, complete, undefined)
+            setComplete(id, complete, null)
         }
     }
 
-    const [deletedId, doDelete] = useResource((id) => ({
+    const [deleted, doDelete] = useResource((id) => ({
         url: `/items/${encodeURI(id)}`,
         method: 'delete'
     }))
 
     useEffect(() => {
-        if (deletedId) {
+        if (deleted) {
             dispatch({ type: 'DELETE_ITEM', itemId: id })
         }
-    }, [deletedId])
+    }, [deleted])
 
     return (
         <div>
