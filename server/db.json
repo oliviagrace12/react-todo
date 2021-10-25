@@ -14,21 +14,6 @@
       "createdTime": "Sun Oct 24 2021 22:30:51 GMT-0500 (Central Daylight Time)",
       "complete": false,
       "completedTime": "Sun Oct 24 2021 22:30:51 GMT-0500 (Central Daylight Time)"
-    },
-    {
-      "title": "Diane, order a new headphones for me",
-      "description": "please",
-      "createdTime": "Sun Oct 24 2021 22:16:12 GMT-0500 (Central Daylight Time)",
-      "complete": true,
-      "id": 3,
-      "completedTime": "Sun Oct 24 2021 22:31:34 GMT-0500 (Central Daylight Time)"
-    },
-    {
-      "title": "Test !!!",
-      "description": "test",
-      "createdTime": "Sun Oct 24 2021 22:31:55 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 4
     }
   ],
   "users": [

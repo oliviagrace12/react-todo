@@ -28,6 +28,17 @@ export default function Item({ title, description, complete, createdTime, comple
         }
     }
 
+    const [deletedId, doDelete] = useResource((id) => ({
+        url: `/items/${encodeURI(id)}`,
+        method: 'delete'
+    }))
+
+    useEffect(() => {
+        if (deletedId) {
+            dispatch({ type: 'DELETE_ITEM', itemId: id })
+        }
+    }, [deletedId])
+
     return (
         <div>
             <h3 style={{ color: secondaryColor }}>{title} <br /></h3>
@@ -36,7 +47,7 @@ export default function Item({ title, description, complete, createdTime, comple
             <input type="checkbox" defaultChecked={complete} onClick={e => { handleComplete(id, !complete) }}></input>
             {complete && <i>Completed time: {completedTime}</i>}
             <br />
-            <button onClick={e => { dispatch({ type: 'DELETE_ITEM', itemId: id }) }}>Delete</button>
+            <button onClick={e => { doDelete(id) }}>Delete</button>
             <p />
         </div>
     )
