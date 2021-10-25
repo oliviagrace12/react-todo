@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     if (items && items.data) {
-      dispatch({ type: 'FETCH_ITEMS', items: items.data })
+      dispatch({ type: 'FETCH_ITEMS', items: items.data.reverse() })
     }
   }, [items])
 
