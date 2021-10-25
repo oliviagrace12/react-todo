@@ -18,9 +18,9 @@ function itemReducer(state, action) {
             const newItem = {
                 title: action.title,
                 description: action.description,
-                complete: false,
-                createdTime: Date(),
-                completedTime: undefined
+                complete: action.complete,
+                createdTime: action.createdTime,
+                id: action.id
             }
             return [newItem, ...state]
         case 'TOGGLE_ITEM':

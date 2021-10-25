@@ -19,14 +19,13 @@ export default function CreateItem() {
 
     function handleCreate(formData) {
         createItem({ title: formData.title, description: formData.description })
-        dispatch({ type: "CREATE_ITEM", title: formData.title, description: formData.description });
     }
 
-    // useEffect(() => {
-    //     if(item && item.data) {
-    //         dispatch({type: "FETCH_ITEMS", items: item.data})
-    //     }
-    // }, [item])
+    useEffect(() => {
+        if (item && item.data) {
+            dispatch({ type: "CREATE_ITEM", title: item.data.title, description: item.data.description, createdTime: item.data.createdTime, complete: item.data.complete, id: item.data.id });
+        }
+    }, [item])
 
     return (
         <div>
