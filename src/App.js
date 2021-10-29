@@ -7,6 +7,7 @@ import Header from './Header'
 import { ThemeContext, StateContext } from './Contexts'
 import ChangeTheme from './ChangeTheme';
 import { useResource } from 'react-request-hook';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 
