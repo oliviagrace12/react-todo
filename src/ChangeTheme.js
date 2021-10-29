@@ -1,15 +1,13 @@
 import React, { useEffect } from 'react'
+import { NavDropdown } from 'react-bootstrap'
 import { useResource } from 'react-request-hook'
 
 function ThemeItem({ theme, active, onClick }) {
     return (
         <span onClick={onClick} style={{ cursor: 'pointer', paddingLeft: 8, fontWeight: active ? 'bold' : 'normal' }}>
-            <span>[</span>
             <span style={{ color: theme.primaryColor }}>Primary</span>
             <span>/</span>
             <span style={{ color: theme.secondaryColor }}>Secondary</span>
-            <span>]</span>
-
         </span>
     )
 }
@@ -28,14 +26,16 @@ export default function ChangeTheme({ theme, setTheme }) {
     function isActive(t) { return t.primaryColor === theme.primaryColor && t.secondaryColor === theme.secondaryColor }
 
     return (
-        <div>
-            Change theme:
-
+        <>
             {isLoading && "Loading themes..."}
 
-            {data && data.map((t, i) =>
-                <ThemeItem key={'theme-' + i} theme={t} active={isActive(t)} onClick={() => setTheme(t)} />
-            )}
-        </div>
+            <NavDropdown title="Change Theme" id="basic-nav-dropdown">
+                {data && data.map((t, i) =>
+                    <NavDropdown.Item>
+                        <ThemeItem key={'theme-' + i} theme={t} active={isActive(t)} onClick={() => setTheme(t)} />
+                    </NavDropdown.Item>
+                )}
+            </NavDropdown>
+        </>
     )
 }

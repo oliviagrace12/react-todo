@@ -8,6 +8,7 @@ import { ThemeContext, StateContext } from './Contexts'
 import ChangeTheme from './ChangeTheme';
 import { useResource } from 'react-request-hook';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 
 function App() {
 
@@ -46,12 +47,14 @@ function App() {
       <div>
         <ThemeContext.Provider value={theme}>
           <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
-            <Header text="My To-Do List"></Header>
-            <ChangeTheme theme={theme} setTheme={setTheme} />
-            <UserBar />
-            <br /><br /><hr /><br />
-            <CreateItem />
-            <ItemList />
+            <Container>
+              <Header text="My To-Do List"></Header>
+              <ChangeTheme theme={theme} setTheme={setTheme} />
+              <UserBar />
+              <br /><br /><hr /><br />
+              <CreateItem />
+              <ItemList />
+            </Container>
           </StateContext.Provider>
         </ThemeContext.Provider>
       </div>
@@ -61,11 +64,13 @@ function App() {
       <div>
         <ThemeContext.Provider value={theme}>
           <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
-            <Header text="My To-Do List"></Header>
-            <ChangeTheme theme={theme} setTheme={setTheme} />
-            <UserBar />
-            <br /><br /><hr /><br />
-            <ItemList />
+            <Container>
+              <Header text="My To-Do List"></Header>
+              <ChangeTheme theme={theme} setTheme={setTheme} />
+              <UserBar />
+              <br /><br /><hr /><br />
+              <ItemList />
+            </Container>
           </StateContext.Provider>
         </ThemeContext.Provider>
       </div>
