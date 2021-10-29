@@ -15,13 +15,6 @@
       "createdTime": "Sun Oct 24 2021 22:16:12 GMT-0500 (Central Daylight Time)",
       "complete": false,
       "completedTime": null
-    },
-    {
-      "title": "This",
-      "description": "is an item",
-      "createdTime": "Thu Oct 28 2021 22:10:55 GMT-0500 (Central Daylight Time)",
-      "complete": false,
-      "id": 3
     }
   ],
   "users": [
@@ -59,6 +52,11 @@
       "username": "e",
       "password": "r",
       "id": 7
+    },
+    {
+      "username": "b",
+      "password": "b",
+      "id": 8
     }
   ],
   "themes": [

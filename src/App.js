@@ -8,7 +8,7 @@ import { ThemeContext, StateContext } from './Contexts'
 import ChangeTheme from './ChangeTheme';
 import { useResource } from 'react-request-hook';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container } from 'react-bootstrap';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 
 function App() {
 
@@ -48,8 +48,18 @@ function App() {
         <ThemeContext.Provider value={theme}>
           <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
             <Container>
-              <Header text="My To-Do List"></Header>
-              <ChangeTheme theme={theme} setTheme={setTheme} />
+
+              <Navbar bg="light" expand="lg">
+                <Container>
+                  <Navbar.Brand><Header text="My To-Do List"></Header></Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                      <Nav.Link><ChangeTheme theme={theme} setTheme={setTheme} /></Nav.Link>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
               <UserBar />
               <br /><br /><hr /><br />
               <CreateItem />
@@ -65,8 +75,17 @@ function App() {
         <ThemeContext.Provider value={theme}>
           <StateContext.Provider value={{ state: state, dispatch: dispatch }}>
             <Container>
-              <Header text="My To-Do List"></Header>
-              <ChangeTheme theme={theme} setTheme={setTheme} />
+              <Navbar bg="light" expand="lg">
+                <Container>
+                  <Navbar.Brand><Header text="My To-Do List"></Header></Navbar.Brand>
+                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                  <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                      <Nav.Link ><ChangeTheme theme={theme} setTheme={setTheme} /></Nav.Link>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
               <UserBar />
               <br /><br /><hr /><br />
               <ItemList />
@@ -76,9 +95,6 @@ function App() {
       </div>
     )
   }
-
-
-
 }
 
 export default App;
