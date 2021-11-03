@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { useResource } from 'react-request-hook'
 import { StateContext, ThemeContext } from './Contexts'
+import { Card, Button } from 'react-bootstrap'
 
 export default function Item({ title, description, complete, createdTime, completedTime, id }) {
 
@@ -40,15 +41,19 @@ export default function Item({ title, description, complete, createdTime, comple
     }, [deleted])
 
     return (
-        <div>
-            <h3 style={{ color: secondaryColor }}>{title} <br /></h3>
-            <>{description} <br /></>
-            <i>Created time:  {createdTime} <br /></i>
-            <input type="checkbox" defaultChecked={complete} onClick={e => { handleComplete(id, !complete) }}></input>
-            {complete && <i>Completed time: {completedTime}</i>}
-            <br />
-            <button onClick={e => { doDelete(id) }}>Delete</button>
-            <p />
-        </div>
+        <Card>
+            <Card.Header style={{ color: secondaryColor }} as="h5">
+                <input type="checkbox" defaultChecked={complete} onClick={e => { handleComplete(id, !complete) }}></input> {title}
+            </Card.Header>
+            <Card.Body>
+                <Card.Title>{description}</Card.Title>
+
+                <Card.Text> <i>Created time:  {createdTime} <br /></i> </Card.Text>
+                {/* <Card.Text> <input type="checkbox" defaultChecked={complete} onClick={e => { handleComplete(id, !complete) }}></input></Card.Text> */}
+                <Card.Text> {complete && <i>Completed time: {completedTime}</i>} </Card.Text>
+
+                <Button onClick={e => { doDelete(id) }}>Delete</Button>
+            </Card.Body>
+        </Card>
     )
 }
