@@ -29,7 +29,7 @@ export default function Login({ show, handleClose }) {
 
     return (
         <Modal show={show} hide={handleClose}>
-            <Form onSubmit={e => { e.preventDefault(); login(username, password); handleClose(); }}>
+            <Form onSubmit={e => { e.preventDefault(); login(username, password); handleClose() }}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>

@@ -22,7 +22,7 @@ export default function CreateItem() {
     }
 
     useEffect(() => {
-        if (item && item.data) {
+        if (item && item.data && item.isLoading === false) {
             dispatch({ type: "CREATE_ITEM", title: item.data.title, description: item.data.description, createdTime: item.data.createdTime, complete: item.data.complete, id: item.data.id });
         }
     }, [item])

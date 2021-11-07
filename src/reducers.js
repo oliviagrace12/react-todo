@@ -32,7 +32,7 @@ function itemReducer(state, action) {
                 return item
             })
         case 'DELETE_ITEM':
-            return state.filter((item, i) => i !== action.id)
+            return state.filter((item) => item.id !== action.itemId)
         default:
             return state
     }

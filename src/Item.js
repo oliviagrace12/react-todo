@@ -16,7 +16,7 @@ export default function Item({ title, description, complete, createdTime, comple
     }))
 
     useEffect(() => {
-        if (item && item.data) {
+        if (item && item.data && item.isLoading === false) {
             dispatch({ type: 'TOGGLE_ITEM', complete: item.data.complete, id: item.data.id })
         }
     }, [item])
@@ -35,7 +35,7 @@ export default function Item({ title, description, complete, createdTime, comple
     }))
 
     useEffect(() => {
-        if (deleted) {
+        if (deleted && deleted.data && deleted.isLoading === false) {
             dispatch({ type: 'DELETE_ITEM', itemId: id })
         }
     }, [deleted])
