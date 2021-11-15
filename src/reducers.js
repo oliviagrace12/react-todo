@@ -1,10 +1,16 @@
 function userReducer(state, action) {
     switch (action.type) {
+        // case 'REGISTER':
         case 'LOGIN':
-        case 'REGISTER':
-            return action.username
+            return {
+                'username': action.username,
+                'access_token': action.access_token
+            }
         case 'LOGOUT':
-            return ''
+            return {
+                'username': undefined,
+                'access_token': undefined
+            }
         default:
             return state
     }
@@ -25,7 +31,7 @@ function itemReducer(state, action) {
             return [newItem, ...state]
         case 'TOGGLE_ITEM':
             return state.map((item) => {
-                if (item.id === action.id) {
+                if (item.id === action.itemId) {
                     item.complete = action.complete
                     item.completedTime = Date();
                 }

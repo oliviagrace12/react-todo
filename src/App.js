@@ -17,7 +17,7 @@ function App() {
     method: 'get'
   }))
 
-  const [state, dispatch] = useReducer(appReducer, { user: '', items: [] })
+  const [state, dispatch] = useReducer(appReducer, { user: {}, items: [] })
 
   useEffect(getItems, [])
 
@@ -36,7 +36,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      document.title = `${user}'s To-Do List`
+      document.title = `${user.username}'s To-Do List`
     } else {
       document.title = 'To-Do List'
     }

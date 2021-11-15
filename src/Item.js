@@ -17,7 +17,7 @@ export default function Item({ title, description, complete, createdTime, comple
 
     useEffect(() => {
         if (item && item.data && item.isLoading === false) {
-            dispatch({ type: 'TOGGLE_ITEM', complete: item.data.complete, id: item.data.id })
+            dispatch({ type: 'TOGGLE_ITEM', complete: item.data.complete, itemId: item.data.id })
         }
     }, [item])
 
