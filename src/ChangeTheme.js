@@ -15,7 +15,7 @@ function ThemeItem({ theme, active, onClick }) {
 export default function ChangeTheme({ theme, setTheme }) {
 
     const [themes, getThemes] = useResource(() => ({
-        url: '/themes',
+        url: '/theme/getAll',
         method: 'get'
     }))
 
