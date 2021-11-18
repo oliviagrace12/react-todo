@@ -10,14 +10,18 @@ export default function Item({ title, description, complete, createdTime, comple
     const { state, dispatch } = useContext(StateContext)
 
     const [item, setComplete] = useResource((id, complete, completedTime) => ({
-        url: `/items/${encodeURI(id)}`,
+        url: `/item/complete/${encodeURI(id)}`,
         method: 'patch',
-        data: { complete, completedTime }
+        data: { complete, completedTime },
+        headers: { "Authorization": `${state.user.access_token}` }
     }))
 
     useEffect(() => {
         if (item && item.data && item.isLoading === false) {
-            dispatch({ type: 'TOGGLE_ITEM', complete: item.data.complete, itemId: item.data.id })
+            dispatch({
+                type: 'TOGGLE_ITEM',
+                complete: item.data.complete, completedTime: item.data.completedTime, itemId: item.data.id
+            })
         }
     }, [item])
 
@@ -37,7 +41,7 @@ export default function Item({ title, description, complete, createdTime, comple
 
     useEffect(() => {
         if (deleted && deleted.data && deleted.isLoading === false) {
-            dispatch({ type: 'DELETE_ITEM', itemId: id })
+            dispatch({ type: 'DELETE_ITEM', itemId: deleted.data })
         }
     }, [deleted])
 

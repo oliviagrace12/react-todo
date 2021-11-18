@@ -26,14 +26,14 @@ function itemReducer(state, action) {
                 description: action.description,
                 complete: action.complete,
                 createdTime: action.createdTime,
-                id: action.id
+                id: action.itemId
             }
             return [newItem, ...state]
         case 'TOGGLE_ITEM':
             return state.map((item) => {
                 if (item.id === action.itemId) {
                     item.complete = action.complete
-                    item.completedTime = Date();
+                    item.completedTime = action.completedTime;
                 }
                 return item
             })

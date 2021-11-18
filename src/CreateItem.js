@@ -15,7 +15,7 @@ export default function CreateItem() {
         url: '/item/create',
         method: 'post',
         headers: { "Authorization": `${state.user.access_token}` },
-        data: { title, description, createdTime: Date(), complete: false, completedTime: undefined }
+        data: { title, description, createdTime: Date(), complete: false }
     }))
 
     function handleCreate(formData) {
