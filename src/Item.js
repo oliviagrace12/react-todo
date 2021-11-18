@@ -7,7 +7,7 @@ export default function Item({ title, description, complete, createdTime, comple
 
     const { secondaryColor } = useContext(ThemeContext)
 
-    const { dispatch } = useContext(StateContext)
+    const { state, dispatch } = useContext(StateContext)
 
     const [item, setComplete] = useResource((id, complete, completedTime) => ({
         url: `/items/${encodeURI(id)}`,
@@ -30,8 +30,9 @@ export default function Item({ title, description, complete, createdTime, comple
     }
 
     const [deleted, doDelete] = useResource((id) => ({
-        url: `/items/${encodeURI(id)}`,
-        method: 'delete'
+        url: `/item/delete/${encodeURI(id)}`,
+        method: 'delete',
+        headers: { "Authorization": `${state.user.access_token}` }
     }))
 
     useEffect(() => {
