@@ -7,7 +7,6 @@ export default function Logout() {
     return (
         <form onSubmit={e => { e.preventDefault(); dispatch({ type: "LOGOUT" }); }}>
             Logged in as: <b>{state.user.username} </b>
-            <p />
             <input type="submit" value="Logout" />
         </form>
     )

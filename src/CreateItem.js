@@ -9,11 +9,12 @@ export default function CreateItem() {
         description: ""
     })
 
-    const { dispatch } = useContext(StateContext)
+    const { dispatch, state } = useContext(StateContext)
 
     const [item, createItem] = useResource(({ title, description }) => ({
-        url: '/items',
+        url: '/item/create',
         method: 'post',
+        headers: { "Authorization": `${state.user.access_token}` },
         data: { title, description, createdTime: Date(), complete: false, completedTime: undefined }
     }))
 
